@@ -1,0 +1,205 @@
+{
+  "file": "Website Prototype (Community)",
+  "source": "upload",
+  "model": "claude-sonnet-4.6",
+  "generatedFiles": [
+    "index.html",
+    "package.json",
+    "vite.config.js",
+    "src/App.jsx",
+    "src/main.jsx",
+    "src/styles.css",
+    "src/components/Footer.jsx",
+    "src/components/Navbar.jsx",
+    "src/screens/AboutUs.jsx",
+    "src/screens/ContactUs.jsx",
+    "src/screens/Events.jsx",
+    "src/screens/FacebookPage.jsx",
+    "src/screens/Home.jsx",
+    "src/screens/JoiningTheSession.jsx",
+    "src/screens/NewsUpdates.jsx",
+    "src/screens/PrayerRequestForm.jsx",
+    "src/screens/PrayerRequestThanks.jsx",
+    "src/screens/ThankYouNote.jsx",
+    "src/screens/ZoomPage.jsx"
+  ],
+  "metrics": {
+    "screens": {
+      "figmaTotal": 11,
+      "generatedTotal": 11,
+      "matched": 11,
+      "recall": 1.0,
+      "precision": 1.0,
+      "missedFigmaScreens": [],
+      "extraGeneratedScreens": []
+    },
+    "components": {
+      "passedToAgent": 0,
+      "foundInOutput": 0,
+      "coverage": null,
+      "missing": []
+    },
+    "prompt": {
+      "mode": "mcp",
+      "customAgent": true,
+      "source": "upload",
+      "grounded": true,
+      "screensIncluded": 11,
+      "screensExcluded": [],
+      "nodesPassedToAgent": 389,
+      "promptChars": 7762,
+      "budget": 60000
+    },
+    "figma": {
+      "totalNodes": 389,
+      "screens": 11,
+      "components": 0,
+      "instances": 0,
+      "textLayers": 192,
+      "flowConnections": 0
+    },
+    "timings": {
+      "generate_s": 488.1,
+      "build_s": 2.1
+    },
+    "curation": {
+      "discardedNodes": 0,
+      "colorTokens": 10,
+      "typeStyles": 8,
+      "listsDetected": 1,
+      "nodesCollapsedInLists": 4
+    },
+    "enforcement": {
+      "repairRounds": 0,
+      "buildStatus": "passed",
+      "screenCoverage": 1.0,
+      "visualRepair": null
+    },
+    "visual": {
+      "perScreen": [
+        {
+          "name": "Home",
+          "route": "/home",
+          "ssim": -0.076,
+          "textGeometry": {
+            "total": 15,
+            "found": 13,
+            "within5pct": 12,
+            "meanOffsetPct": 2.9
+          }
+        },
+        {
+          "name": "About Us",
+          "route": "/about-us",
+          "ssim": 0.092,
+          "textGeometry": {
+            "total": 15,
+            "found": 13,
+            "within5pct": 12,
+            "meanOffsetPct": 2.8
+          }
+        },
+        {
+          "name": "News & Updates",
+          "route": "/news-updates",
+          "ssim": 0.138,
+          "textGeometry": {
+            "total": 15,
+            "found": 14,
+            "within5pct": 9,
+            "meanOffsetPct": 4.0
+          }
+        },
+        {
+          "name": "Events ",
+          "route": "/events",
+          "ssim": 0.085,
+          "textGeometry": {
+            "total": 15,
+            "found": 15,
+            "within5pct": 9,
+            "meanOffsetPct": 10.4
+          }
+        },
+        {
+          "name": "Contact Us.",
+          "route": "/contact-us",
+          "ssim": 0.063,
+          "textGeometry": {
+            "total": 15,
+            "found": 14,
+            "within5pct": 7,
+            "meanOffsetPct": 7.4
+          }
+        },
+        {
+          "name": "Thank you Note",
+          "route": "/thank-you-note",
+          "ssim": 0.283,
+          "textGeometry": {
+            "total": 2,
+            "found": 2,
+            "within5pct": 2,
+            "meanOffsetPct": 2.8
+          }
+        },
+        {
+          "name": "Joining the session",
+          "route": "/joining-the-session",
+          "ssim": 0.661,
+          "textGeometry": {
+            "total": 2,
+            "found": 2,
+            "within5pct": 2,
+            "meanOffsetPct": 4.1
+          }
+        },
+        {
+          "name": "Zoom Page",
+          "route": "/zoom-page",
+          "ssim": 0.497,
+          "textGeometry": {
+            "total": 0,
+            "found": 0,
+            "within5pct": 0,
+            "meanOffsetPct": null
+          }
+        },
+        {
+          "name": "Facebook Page",
+          "route": "/facebook-page",
+          "ssim": 0.579,
+          "textGeometry": {
+            "total": 0,
+            "found": 0,
+            "within5pct": 0,
+            "meanOffsetPct": null
+          }
+        },
+        {
+          "name": "Prayer Request Form",
+          "route": "/prayer-request-form",
+          "ssim": 0.203,
+          "textGeometry": {
+            "total": 14,
+            "found": 4,
+            "within5pct": 2,
+            "meanOffsetPct": 7.6
+          }
+        },
+        {
+          "name": "Prayer Request Thanks ",
+          "route": "/prayer-request-thanks",
+          "ssim": 0.378,
+          "textGeometry": {
+            "total": 2,
+            "found": 0,
+            "within5pct": 0,
+            "meanOffsetPct": null
+          }
+        }
+      ],
+      "avgSsim": 0.264
+    }
+  }
+}

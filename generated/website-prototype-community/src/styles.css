@@ -1,0 +1,79 @@
+/* ===== DESIGN TOKENS ===== */
+:root {
+  --color-1: #ffffff;
+  --color-2: #000000;
+  --color-3: #c4c4c4;
+  --color-4: #119305;
+  --color-5: #d89025;
+  --color-6: #f3efef;
+  --color-7: #451e1e;
+  --color-8: #032500;
+  --color-9: #ffc061;
+  --color-10: #2d8cff;
+  --font-poppins: "Poppins", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-roboto); color: var(--color-2); background: var(--color-1); overflow-x: hidden; }
+.navbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 40px; background: var(--color-6); position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 4px rgba(0,0,0,0.08); min-height: 80px; }
+.navbar-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.logo-icon { width: 44px; height: 44px; flex-shrink: 0; }
+.logo-text { font-family: var(--font-poppins); font-weight: 700; font-size: 13px; color: var(--color-2); line-height: 1.2; text-transform: uppercase; letter-spacing: 0.5px; }
+.logo-text span { color: var(--color-5); }
+.navbar-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.navbar-links a { font-family: var(--font-roboto); font-size: 18px; font-weight: 400; color: var(--color-2); text-decoration: none; white-space: nowrap; }
+.navbar-links a:hover { color: var(--color-4); }
+.navbar-cta { background: var(--color-7); color: var(--color-1); border: none; border-radius: 21px; padding: 8px 22px; font-family: var(--font-roboto); font-size: 18px; font-weight: 400; cursor: pointer; white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; height: 37px; }
+.hero { position: relative; width: 100%; min-height: 480px; display: flex; align-items: flex-end; padding: 52px 64px; overflow: hidden; color: var(--color-1); }
+.hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(3,37,0,0.55); }
+.hero-content { position: relative; z-index: 1; max-width: 720px; }
+.hero-eyebrow { font-family: var(--font-poppins); font-size: 22px; font-weight: 700; color: var(--color-1); margin-bottom: 4px; }
+.hero-title { font-family: var(--font-poppins); font-size: 85px; font-weight: 700; color: var(--color-1); line-height: 1; margin-bottom: 28px; }
+.hero-actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.btn-hero-gold { background: var(--color-5); color: var(--color-1); border: none; border-radius: 21px; width: 254px; height: 64px; font-family: var(--font-roboto); font-size: 24px; font-weight: 400; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; }
+.btn-hero-green { background: var(--color-4); color: var(--color-1); border: none; border-radius: 21px; width: 254px; height: 64px; font-family: var(--font-roboto); font-size: 24px; font-weight: 400; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; }
+.btn-hero-green:hover { background: #0d7304; }
+.btn-hero-text { background: none; border: none; color: var(--color-1); font-family: var(--font-roboto); font-size: 24px; font-weight: 400; cursor: pointer; text-decoration: none; display: inline-block; white-space: nowrap; }
+.footer-green { background: var(--color-4); padding: 48px 60px; display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.footer-col { flex: 1; min-width: 220px; }
+.footer-col p { font-family: var(--font-poppins); font-size: 24px; font-weight: 700; color: var(--color-1); line-height: 1.7; }
+.footer-black { background: var(--color-2); padding: 28px 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.footer-follow { font-family: var(--font-poppins); font-size: 14px; font-weight: 700; color: var(--color-1); }
+.footer-social { display: flex; gap: 20px; align-items: center; }
+.footer-social a { color: var(--color-9); text-decoration: none; display: flex; align-items: center; }
+.footer-handle { font-family: var(--font-poppins); font-size: 24px; font-weight: 700; color: var(--color-1); }
+.thank-you-page { min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; padding: 40px; }
+.thank-you-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0a3d02 0%, #1a7a0a 40%, #0a3d02 100%); }
+.thank-you-content { position: relative; z-index: 1; text-align: center; max-width: 900px; }
+.thank-you-title { font-family: var(--font-poppins); font-size: 48px; font-weight: 700; color: var(--color-1); line-height: 1.3; margin-bottom: 48px; }
+.thank-you-actions { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+.btn-light { background: var(--color-6); color: var(--color-4); border: none; border-radius: 16px; padding: 20px 80px; font-family: var(--font-poppins); font-size: 24px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; min-width: 280px; justify-content: center; }
+.btn-amber { background: var(--color-9); color: var(--color-2); border: none; border-radius: 16px; padding: 20px 60px; font-family: var(--font-poppins); font-size: 24px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; min-width: 280px; justify-content: center; }
+.joining-page { min-height: 100vh; background: var(--color-8); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px; padding: 40px; position: relative; }
+.joining-options { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
+.joining-option-light { background: var(--color-6); color: var(--color-4); border: none; border-radius: 16px; padding: 24px 48px; font-family: var(--font-poppins); font-size: 22px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; min-width: 300px; justify-content: center; }
+.joining-option-amber { background: var(--color-9); color: var(--color-2); border: none; border-radius: 16px; padding: 24px 48px; font-family: var(--font-poppins); font-size: 22px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; min-width: 300px; justify-content: center; }
+.close-btn-circle { width: 52px; height: 52px; border-radius: 50%; background: var(--color-1); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: var(--font-poppins); font-size: 22px; font-weight: 700; color: var(--color-2); text-decoration: none; }
+.zoom-page { min-height: 100vh; background: var(--color-1); display: flex; align-items: stretch; position: relative; }
+.zoom-main { background: var(--color-10); flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px; min-height: 80vh; }
+.zoom-logo-text { font-family: "Arial Rounded MT Bold", "Arial", sans-serif; font-size: 120px; font-weight: 700; color: var(--color-1); letter-spacing: -2px; }
+.zoom-close { position: absolute; top: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: var(--color-4); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: var(--font-poppins); font-size: 24px; font-weight: 700; color: var(--color-1); text-decoration: none; }
+.facebook-page { min-height: 100vh; background: #3b5998; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 40px; position: relative; }
+.facebook-close { position: absolute; top: 24px; right: 24px; width: 60px; height: 60px; border-radius: 50%; background: var(--color-1); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-family: var(--font-poppins); font-size: 26px; font-weight: 700; color: var(--color-5); text-decoration: none; }
+.prayer-form-page { padding: 60px 80px; max-width: 1100px; margin: 0 auto; min-height: 100vh; }
+.prayer-form-title { font-family: var(--font-poppins); font-size: 48px; font-weight: 700; color: var(--color-4); text-align: center; margin-bottom: 12px; }
+.prayer-form-subtitle { font-family: var(--font-roboto); font-size: 22px; font-weight: 700; text-align: center; color: var(--color-2); margin-bottom: 50px; }
+.prayer-form { display: flex; flex-direction: column; gap: 28px; }
+.prayer-form-row { display: flex; gap: 40px; flex-wrap: wrap; }
+.prayer-form-input { background: var(--color-3); border: none; border-radius: 16px; padding: 22px 28px; font-family: var(--font-poppins); font-size: 20px; font-weight: 700; color: var(--color-1); outline: none; flex: 1; min-width: 220px; }
+.prayer-form-input::placeholder { color: rgba(255,255,255,0.9); }
+.prayer-form-textarea { background: var(--color-3); border: none; border-radius: 24px; padding: 28px; font-family: var(--font-poppins); font-size: 20px; font-weight: 700; color: var(--color-1); outline: none; width: 100%; min-height: 280px; resize: vertical; }
+.prayer-form-textarea::placeholder { color: rgba(255,255,255,0.9); }
+.prayer-form-actions { display: flex; align-items: center; gap: 28px; margin-top: 12px; }
+.prayer-send-btn { background: var(--color-4); color: var(--color-1); border: none; border-radius: 16px; padding: 22px 48px; font-family: var(--font-poppins); font-size: 28px; font-weight: 700; cursor: pointer; min-width: 200px; }
+.prayer-cancel-btn { background: none; border: none; font-family: var(--font-poppins); font-size: 28px; font-weight: 700; color: var(--color-2); cursor: pointer; text-decoration: none; }
+.prayer-thanks-page { min-height: 100vh; background: var(--color-1); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 40px; text-align: center; }
+.prayer-thanks-text { font-family: var(--font-poppins); font-size: 28px; font-weight: 700; color: var(--color-2); max-width: 860px; line-height: 1.5; margin-bottom: 48px; }
+.prayer-thanks-actions { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+.prayer-thanks-btn { background: var(--color-4); color: var(--color-1); border: none; border-radius: 12px; padding: 20px 80px; font-family: var(--font-poppins); font-size: 22px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; min-width: 250px; text-align: center; }

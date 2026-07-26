@@ -1,0 +1,181 @@
+{
+  "file": "Website Prototype (Community)",
+  "source": "upload",
+  "screens": [
+    {
+      "id": "10:2",
+      "name": "Home",
+      "route": "/home",
+      "goesTo": []
+    },
+    {
+      "id": "40:80",
+      "name": "About Us",
+      "route": "/about-us",
+      "goesTo": []
+    },
+    {
+      "id": "40:200",
+      "name": "News & Updates",
+      "route": "/news-updates",
+      "goesTo": []
+    },
+    {
+      "id": "51:20",
+      "name": "Events ",
+      "route": "/events",
+      "goesTo": []
+    },
+    {
+      "id": "53:178",
+      "name": "Contact Us.",
+      "route": "/contact-us",
+      "goesTo": []
+    },
+    {
+      "id": "57:31",
+      "name": "Thank you Note",
+      "route": "/thank-you-note",
+      "goesTo": []
+    },
+    {
+      "id": "64:75",
+      "name": "Joining the session",
+      "route": "/joining-the-session",
+      "goesTo": []
+    },
+    {
+      "id": "64:86",
+      "name": "Zoom Page",
+      "route": "/zoom-page",
+      "goesTo": []
+    },
+    {
+      "id": "64:87",
+      "name": "Facebook Page",
+      "route": "/facebook-page",
+      "goesTo": []
+    },
+    {
+      "id": "66:4",
+      "name": "Prayer Request Form",
+      "route": "/prayer-request-form",
+      "goesTo": []
+    },
+    {
+      "id": "66:40",
+      "name": "Prayer Request Thanks ",
+      "route": "/prayer-request-thanks",
+      "goesTo": []
+    }
+  ],
+  "flowEdges": 0,
+  "tokens": {
+    "colors": [
+      {
+        "var": "--color-1",
+        "value": "#ffffff",
+        "uses": 117
+      },
+      {
+        "var": "--color-2",
+        "value": "#000000",
+        "uses": 82
+      },
+      {
+        "var": "--color-3",
+        "value": "#c4c4c4",
+        "uses": 55
+      },
+      {
+        "var": "--color-4",
+        "value": "#119305",
+        "uses": 41
+      },
+      {
+        "var": "--color-5",
+        "value": "#d89025",
+        "uses": 19
+      },
+      {
+        "var": "--color-6",
+        "value": "#f3efef",
+        "uses": 9
+      },
+      {
+        "var": "--color-7",
+        "value": "#451e1e",
+        "uses": 5
+      },
+      {
+        "var": "--color-8",
+        "value": "#032500",
+        "uses": 4
+      },
+      {
+        "var": "--color-9",
+        "value": "#ffc061",
+        "uses": 2
+      },
+      {
+        "var": "--color-10",
+        "value": "#2d8cff",
+        "uses": 1
+      }
+    ],
+    "typography": [
+      {
+        "family": "Poppins",
+        "size": 24,
+        "weight": 700,
+        "uses": 63
+      },
+      {
+        "family": "Roboto",
+        "size": 18,
+        "weight": 400,
+        "uses": 36
+      },
+      {
+        "family": "Poppins",
+        "size": 48,
+        "weight": 700,
+        "uses": 30
+      },
+      {
+        "family": "Roboto",
+        "size": 24,
+        "weight": 400,
+        "uses": 24
+      },
+      {
+        "family": "Poppins",
+        "size": 85,
+        "weight": 700,
+        "uses": 10
+      },
+      {
+        "family": "Poppins",
+        "size": 22,
+        "weight": 700,
+        "uses": 5
+      },
+      {
+        "family": "Poppins",
+        "size": 14,
+        "weight": 700,
+        "uses": 5
+      },
+      {
+        "family": "Poppins",
+        "size": 18,
+        "weight": 400,
+        "uses": 5
+      }
+    ]
+  },
+  "discarded": {
+    "count": 0,
+    "items": []
+  }
+}
