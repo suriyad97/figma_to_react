@@ -51,8 +51,19 @@ async def get_models(x_github_pat=None):
                      "statusMessage": getattr(auth, "statusMessage", None)}
         models = await client.list_models()
         await client.stop()
-        result = {"models": [{"id": getattr(m, "id", m), "name": getattr(m, "name", None) or getattr(m, "id", m)} for m in models],
-                  "auth": auth_info}
+        def _model_row(m):
+            billing = getattr(m, "billing", None)
+            mult = getattr(billing, "multiplier", None) if billing else None
+            caps = getattr(m, "capabilities", None)
+            supports = getattr(caps, "supports", None) if caps else None
+            return {
+                "id": getattr(m, "id", m),
+                "name": getattr(m, "name", None) or getattr(m, "id", m),
+                "multiplier": mult,
+                "vision": bool(getattr(supports, "vision", False)) if supports else None,
+            }
+
+        result = {"models": [_model_row(m) for m in models], "auth": auth_info}
         if x_github_pat and auth_info.get("authType") not in ("token", "env", None):
             result["warning"] = (f"Your PAT was ignored - authenticated via {auth_info.get('authType')} "
                                  f"as {auth_info.get('login')} instead. That login has no Copilot API access.")
@@ -275,6 +286,23 @@ async def pipeline(*, file, file_key, source, renders, figma_token, github_pat,
         if assets_note:
             prompt = prompt + assets_note
 
+        context_summary = {
+            "source": source,
+            "mode": "mcp" if mcp_active else "inline",
+            "mcpServer": ("figma-local" if (mcp_active and source in ("upload", "combined"))
+                          else "framelink" if mcp_active else None),
+            "screensWithData": len(screens) if mcp_active else len(included),
+            "screensTotal": len(screens),
+            "flowEdges": len(flow),
+            "designNodes": stats["nodes"],
+            "assetFiles": len(assets or {}),
+            "imagePlacementsMapped": len(mapped) if (assets and image_map) else 0,
+            "rendersAttached": len(attachments),
+            "promptChars": len(prompt),
+        }
+        yield log("CONTEXT: " + " | ".join(
+            f"{k}={v}" for k, v in context_summary.items() if v not in (None, 0)), "success")
+
         async def send(p, atts=None, timeout=600):
             try:
                 resp = await session.send_and_wait(p, attachments=atts or None, timeout=timeout)
@@ -452,6 +480,7 @@ async def pipeline(*, file, file_key, source, renders, figma_token, github_pat,
                             "components": stats["components"], "instances": stats["instances"],
                             "textLayers": stats["texts"], "flowConnections": len(flow)}
         metrics["timings"] = timings
+        metrics["context"] = context_summary
         metrics["curation"] = {"discardedNodes": len(discards),
                                "colorTokens": len(tokens["colors"]),
                                "typeStyles": len(tokens["typography"]),

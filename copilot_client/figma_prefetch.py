@@ -59,3 +59,24 @@ async def fetch_renders(screens, file_key, figma_token):
                     renders[sid] = img.content
     _RENDER_CACHE[file_key] = (time.monotonic(), renders)
     return renders
+
+
+async def fetch_image_fills(file_key: str, figma_token: str) -> dict:
+    """Download every image fill in the file. Returns {filename: bytes} keyed as image_<ref>.png."""
+    assets = {}
+    async with httpx.AsyncClient(timeout=120) as http:
+        r = await http.get(f"https://api.figma.com/v1/files/{file_key}/images",
+                           headers={"X-Figma-Token": figma_token})
+        if r.status_code != 200:
+            raise RuntimeError(f"Figma image-fills API {r.status_code}: {r.text[:150]}")
+        refs = (r.json().get("meta") or {}).get("images") or {}
+        for ref, url in refs.items():
+            if not url:
+                continue
+            try:
+                img = await http.get(url)
+                if img.status_code == 200:
+                    assets[f"image_{ref}.png"] = img.content
+            except Exception:
+                pass
+    return assets

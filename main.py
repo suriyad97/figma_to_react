@@ -9,7 +9,7 @@ from pydantic import BaseModel
 
 from copilot_client.copilot_service import get_models, pipeline
 from copilot_client.figma_combined import load_combined
-from copilot_client.figma_prefetch import fetch_file
+from copilot_client.figma_prefetch import fetch_file, fetch_image_fills
 from pathlib import Path
 
 from copilot_client.figma_zip_mcp import extract_asset_files, extract_export_to_disk, parse_export
@@ -56,11 +56,18 @@ async def convert(req: ConvertRequest):
             file, note = await fetch_file(file_key, req.figmaToken)
             yield _log(f'Loaded "{file["name"]}"' + (f" from {note}" if note else ""), "success")
 
+            url_assets = {}
+            try:
+                url_assets = await fetch_image_fills(file_key, req.figmaToken)
+                yield _log(f"Downloaded {len(url_assets)} image fills from the Figma API", "success")
+            except Exception as e:
+                yield _log(f"Image-fill download failed ({str(e)[:120]}) — continuing without photos", "error")
+
             async for chunk in pipeline(
                     file=file, file_key=file_key, source="url", renders=None,
                     figma_token=req.figmaToken, github_pat=req.githubPat, model=req.model,
                     verify_build=req.verifyBuild, verify_visual=req.verifyVisual,
-                    use_mcp=req.useMcp, ground=req.groundWithImages):
+                    use_mcp=req.useMcp, ground=req.groundWithImages, assets=url_assets):
                 yield chunk
         except Exception as e:
             yield _event({"type": "error", "message": str(e)})

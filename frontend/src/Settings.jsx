@@ -26,7 +26,12 @@ export default function SettingsModal({ settings, onSave, onClose }) {
           setModels(FALLBACK_MODELS);
           return;
         }
-        const list = (data.models || []).map((m) => ({ id: m.id, name: m.name || m.id }));
+        const list = (data.models || []).map((m) => {
+          const bits = [];
+          if (m.multiplier != null) bits.push(m.multiplier === 0 ? "free" : `${m.multiplier}x quota`);
+          if (m.vision) bits.push("vision");
+          return { id: m.id, name: (m.name || m.id) + (bits.length ? ` — ${bits.join(", ")}` : "") };
+        });
         if (list.length) {
           setModels(list);
           setModelError(null);
