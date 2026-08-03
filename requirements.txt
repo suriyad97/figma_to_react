@@ -6,3 +6,4 @@ numpy
 pillow
 playwright
 python-multipart
+opik
